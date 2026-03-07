@@ -17,8 +17,8 @@
 - [x] the ios and android build jobs should trigger the deploy jobs when they finish: this should probably trigger the omnibus job with the right parameters, to follow what we do in the trigger job
 - [x] can we remove this block: Build & Quality and leave the child blocks in place? it looks confusing
 - [x] create scripts in the root repo to clone the repositories and start jenkins and tell the user to open jenkins in browser and open PR to the repo
-
 - [x] rename repositories: jenkinsfiles-test -> jenkins-setup, jenkinsfiles-test-app -> mobile-app, jenkinsfiles-test-app-ci -> mobile-app-ci, jenkins (root folder) -> jenkins-for-mobile-app
+
 - [ ] rename pipeline to Mobile App
 
 - [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
