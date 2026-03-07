@@ -2,7 +2,17 @@
 
 A multi-repo Jenkins environment demonstrating a **multibranch orchestrator pipeline pattern** for mobile (iOS/Android) apps with GitHub commit status reporting.
 
-The core problem it solves: allowing individual failed pipeline stages to be re-run without restarting the entire pipeline.
+The core problem it solves: 
+* based on Jenkinsfiles / minimal use of Job DLS
+* minimal reliance on Jenkins, as much as possible pushed to Python scripts
+* individual failed CI checks can be re-run without restarting the entire CI pipeline
+* optimized for iOS/Android monorepos (skip jobs that are not relevant for the changes under test)
+* improved security: PRs from non-collabolators do not trigger CI checks until the PR is approved by a collabolator
+* testable
+  * it is possible to test entire CI pipeline before pushing to production
+  * high tests coverage
+  * Jenkinsfile linter
+* allows dynamically spawning multiple agents to accomplish one task (e.g. run iOS UI tests on multiple agents in parallel)
 
 ## Quick Start
 
