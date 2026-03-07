@@ -22,7 +22,7 @@
 - [ ] rename repositories: jenkinsfiles-test -> jenkins-setup, jenkinsfiles-test-app -> mobile-app, jenkinsfiles-test-app-ci -> mobile-app-ci, jenkins (root folder) -> jenkins-for-mobile-app
 
 - [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
-that we can test changes to the CI repository)
+that we can test changes to the CI repository before merging to main)
 
 - [ ] define a test alpha pipeline
 - [ ] define a test release pipeline
