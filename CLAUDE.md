@@ -74,7 +74,7 @@ GH_TOKEN=<token> ./ci-cli ios build --commit-sha <sha> --build-url <url>  # Run 
 1. Commit in all affected repos
 2. Push companion repos (app, CI) — Jenkins pulls from GitHub
 3. For Job DSL changes: `docker cp` + run seed-job (or rebuild Docker if Dockerfile/plugins/CASC changed)
-4. Test: `./scripts/jenkins-api.sh build pipeline/job/trigger/job/main CI_BRANCH=main`
+4. Test: `./scripts/jenkins-api.sh build mobile-app/trigger/main CI_BRANCH=main`
 
 ## Key Files
 

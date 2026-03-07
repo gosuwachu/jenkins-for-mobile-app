@@ -67,11 +67,11 @@ docker-compose -f jenkins-setup/docker-compose.yml down
 docker-compose -f jenkins-setup/docker-compose.yml down -v
 
 # Trigger a build
-./jenkins-setup/scripts/jenkins-api.sh build pipeline/job/trigger/job/main CI_BRANCH=main
+./jenkins-setup/scripts/jenkins-api.sh build mobile-app/trigger/main CI_BRANCH=main
 
 # View console log / status
-./jenkins-setup/scripts/jenkins-api.sh log pipeline/job/trigger/job/main
-./jenkins-setup/scripts/jenkins-api.sh status pipeline/job/trigger/job/main
+./jenkins-setup/scripts/jenkins-api.sh log mobile-app/trigger/main
+./jenkins-setup/scripts/jenkins-api.sh status mobile-app/trigger/main
 
 # Run CI repo tests
 cd mobile-app-ci && ./run-tests -v
