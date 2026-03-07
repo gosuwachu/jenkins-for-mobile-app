@@ -14,20 +14,25 @@
 - [x] builds should have names for the trigger pipeline, e.g. #2 <commit sha> <PR#34> [ci:<branch>]
 - [x] use consistent naming for parameters, e.g. use CHANGE_ID instead of PR_NUMBER, rename parameters where necessary
 - [x] ci-cli: load secrets from env variables, do not pass as arguments on the cli, e.g. github token
+- [x] the ios and android build jobs should trigger the deploy jobs when they finish: this should probably trigger the omnibus job with the right parameters, to follow what we do in the trigger job
+- [x] can we remove this block: Build & Quality and leave the child blocks in place? it looks confusing
+- [x] create scripts in the root repo to clone the repositories and start jenkins and tell the user to open jenkins in browser and open PR to the repo
 
-- [ ] make ios and android build trigger the deploy job at the end
+- [ ] rename pipeline to Mobile App
+- [ ] rename repositories: jenkinsfiles-test -> jenkins-setup, jenkinsfiles-test-app -> mobile-app, jenkinsfiles-test-app-ci -> mobile-app-ci, jenkins (root folder) -> jenkins-for-mobile-app
+
+- [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
+that we can test changes to the CI repository)
+
+- [ ] define a test alpha pipeline
+- [ ] define a test release pipeline
 
 - [ ] what would be the integration with release-automation repo?
 - [ ] what would be the integration with quick?
 - [ ] what to do with submodules that have the build scripts?
 
-- [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
-that we can test changes to the CI repository)
-
 - [ ] next js app for displaying the status of commits on main and all of the PRs
 - [ ] next js app for displaying the alpha and release pipeline
-
-- [ ] define a test alpha pipeline
 
 - [ ] it should be possible to specify as a parameter branch or PR number in the trigger job
 
