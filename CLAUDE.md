@@ -12,9 +12,9 @@ This directory contains three interconnected repositories:
 
 | Repo | Purpose | GitHub |
 |------|---------|--------|
-| `jenkinsfiles-test/` | Jenkins infrastructure (Docker, CASC, Job DSL) | [gosuwachu/jenkinsfiles-test](https://github.com/gosuwachu/jenkinsfiles-test) |
-| `jenkinsfiles-test-app/` | App repo with thin trigger stub Jenkinsfile + platform dirs | [gosuwachu/jenkinsfiles-test-app](https://github.com/gosuwachu/jenkinsfiles-test-app) |
-| `jenkinsfiles-test-app-ci/` | CI step definitions: child Jenkinsfiles, Python CLI, shared library | [gosuwachu/jenkinsfiles-test-app-ci](https://github.com/gosuwachu/jenkinsfiles-test-app-ci) |
+| `jenkins-setup/` | Jenkins infrastructure (Docker, CASC, Job DSL) | [gosuwachu/jenkins-setup](https://github.com/gosuwachu/jenkins-setup) |
+| `mobile-app/` | App repo with thin trigger stub Jenkinsfile + platform dirs | [gosuwachu/mobile-app](https://github.com/gosuwachu/mobile-app) |
+| `mobile-app-ci/` | CI step definitions: child Jenkinsfiles, Python CLI, shared library | [gosuwachu/mobile-app-ci](https://github.com/gosuwachu/mobile-app-ci) |
 
 Each repo has its own `CLAUDE.md` with repo-specific details. Read those before making changes.
 
@@ -22,7 +22,7 @@ Each repo has its own `CLAUDE.md` with repo-specific details. Read those before 
 
 ```
 PR/branch push
-  → Multibranch discovers in jenkinsfiles-test-app
+  → Multibranch discovers in mobile-app
   → ci/trigger.Jenkinsfile (thin stub, loads shared library from CI repo)
   → vars/triggerPipeline.groovy orchestrator:
       1. Collaborator check (blocks unauthorized PRs)
@@ -43,7 +43,7 @@ PR/branch push
 
 ## Common Commands
 
-### Jenkins Infrastructure (jenkinsfiles-test/)
+### Jenkins Infrastructure (jenkins-setup/)
 ```bash
 ./scripts/start.sh                    # Build + start Jenkins (localhost:8080, admin/admin)
 docker-compose down                   # Stop
@@ -53,7 +53,7 @@ docker-compose down -v                # Full reset (clear all data)
 ./scripts/jenkins-api.sh status <path> # Get job status
 ```
 
-### CI Repo (jenkinsfiles-test-app-ci/)
+### CI Repo (mobile-app-ci/)
 ```bash
 ./run-tests -v                        # All checks: mypy, pylint, vulture, pytest
 PYTHONPATH=src .venv/bin/pytest -v     # Just pytest
@@ -80,16 +80,16 @@ GH_TOKEN=<token> ./ci-cli ios build --commit-sha <sha> --build-url <url>  # Run 
 
 | File | What it does |
 |------|-------------|
-| `jenkinsfiles-test/jobs/pipeline.groovy` | Job DSL defining all Jenkins jobs |
-| `jenkinsfiles-test/casc/jenkins.yaml` | Jenkins Configuration as Code |
-| `jenkinsfiles-test-app/ci/trigger.Jenkinsfile` | Thin stub loading shared library |
-| `jenkinsfiles-test-app-ci/vars/triggerPipeline.groovy` | Orchestrator logic (shared library) |
-| `jenkinsfiles-test-app-ci/src/company/ci/steps.py` | CI step definitions (STEPS dict) |
-| `jenkinsfiles-test-app-ci/src/company/ci/cli.py` | CLI argument parsing |
-| `jenkinsfiles-test-app-ci/src/company/ci/github.py` | GitHub API (statuses, collaborator checks) |
+| `jenkins-setup/jobs/pipeline.groovy` | Job DSL defining all Jenkins jobs |
+| `jenkins-setup/casc/jenkins.yaml` | Jenkins Configuration as Code |
+| `mobile-app/ci/trigger.Jenkinsfile` | Thin stub loading shared library |
+| `mobile-app-ci/vars/triggerPipeline.groovy` | Orchestrator logic (shared library) |
+| `mobile-app-ci/src/company/ci/steps.py` | CI step definitions (STEPS dict) |
+| `mobile-app-ci/src/company/ci/cli.py` | CLI argument parsing |
+| `mobile-app-ci/src/company/ci/github.py` | GitHub API (statuses, collaborator checks) |
 
 ## Adding a New CI Step
 
-1. Add entry to `STEPS` dict in `jenkinsfiles-test-app-ci/src/company/ci/steps.py`
-2. Create Jenkinsfile in `jenkinsfiles-test-app-ci/ci/<platform>/<platform>-<step>.Jenkinsfile`
-3. Add context to `IOS_CONTEXTS`/`ANDROID_CONTEXTS` in `jenkinsfiles-test-app-ci/vars/triggerPipeline.groovy`
+1. Add entry to `STEPS` dict in `mobile-app-ci/src/company/ci/steps.py`
+2. Create Jenkinsfile in `mobile-app-ci/ci/<platform>/<platform>-<step>.Jenkinsfile`
+3. Add context to `IOS_CONTEXTS`/`ANDROID_CONTEXTS` in `mobile-app-ci/vars/triggerPipeline.groovy`

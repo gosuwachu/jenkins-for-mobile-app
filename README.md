@@ -24,21 +24,21 @@ This clones all repositories, builds the Jenkins Docker image, and starts Jenkin
 
 Then:
 1. Open Jenkins at http://localhost:8080 (admin / admin)
-2. Open a PR against the [app repo](https://github.com/gosuwachu/jenkinsfiles-test-app/compare) to trigger the pipeline
+2. Open a PR against the [app repo](https://github.com/gosuwachu/mobile-app/compare) to trigger the pipeline
 
 ## Repositories
 
 | Directory | Purpose | GitHub |
 |-----------|---------|--------|
-| `jenkinsfiles-test/` | Jenkins infrastructure (Docker, CASC, Job DSL) | [gosuwachu/jenkinsfiles-test](https://github.com/gosuwachu/jenkinsfiles-test) |
-| `jenkinsfiles-test-app/` | App repo with thin trigger Jenkinsfile + platform dirs | [gosuwachu/jenkinsfiles-test-app](https://github.com/gosuwachu/jenkinsfiles-test-app) |
-| `jenkinsfiles-test-app-ci/` | CI definitions: child Jenkinsfiles, Python CLI, shared library | [gosuwachu/jenkinsfiles-test-app-ci](https://github.com/gosuwachu/jenkinsfiles-test-app-ci) |
+| `jenkins-setup/` | Jenkins infrastructure (Docker, CASC, Job DSL) | [gosuwachu/jenkins-setup](https://github.com/gosuwachu/jenkins-setup) |
+| `mobile-app/` | App repo with thin trigger Jenkinsfile + platform dirs | [gosuwachu/mobile-app](https://github.com/gosuwachu/mobile-app) |
+| `mobile-app-ci/` | CI definitions: child Jenkinsfiles, Python CLI, shared library | [gosuwachu/mobile-app-ci](https://github.com/gosuwachu/mobile-app-ci) |
 
 ## How It Works
 
 ```
 PR/branch push
-  -> Multibranch discovers branch in jenkinsfiles-test-app
+  -> Multibranch discovers branch in mobile-app
   -> ci/trigger.Jenkinsfile (thin stub, loads shared library from CI repo)
   -> vars/triggerPipeline.groovy orchestrator:
       1. Collaborator check (blocks unauthorized PRs)
@@ -60,21 +60,21 @@ PR/branch push
 
 ```bash
 # Start / stop Jenkins
-./jenkinsfiles-test/scripts/start.sh
-docker-compose -f jenkinsfiles-test/docker-compose.yml down
+./jenkins-setup/scripts/start.sh
+docker-compose -f jenkins-setup/docker-compose.yml down
 
 # Full reset (clear all data)
-docker-compose -f jenkinsfiles-test/docker-compose.yml down -v
+docker-compose -f jenkins-setup/docker-compose.yml down -v
 
 # Trigger a build
-./jenkinsfiles-test/scripts/jenkins-api.sh build pipeline/job/trigger/job/main CI_BRANCH=main
+./jenkins-setup/scripts/jenkins-api.sh build pipeline/job/trigger/job/main CI_BRANCH=main
 
 # View console log / status
-./jenkinsfiles-test/scripts/jenkins-api.sh log pipeline/job/trigger/job/main
-./jenkinsfiles-test/scripts/jenkins-api.sh status pipeline/job/trigger/job/main
+./jenkins-setup/scripts/jenkins-api.sh log pipeline/job/trigger/job/main
+./jenkins-setup/scripts/jenkins-api.sh status pipeline/job/trigger/job/main
 
 # Run CI repo tests
-cd jenkinsfiles-test-app-ci && ./run-tests -v
+cd mobile-app-ci && ./run-tests -v
 ```
 
 ## Prerequisites

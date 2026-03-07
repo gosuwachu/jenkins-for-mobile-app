@@ -18,8 +18,8 @@
 - [x] can we remove this block: Build & Quality and leave the child blocks in place? it looks confusing
 - [x] create scripts in the root repo to clone the repositories and start jenkins and tell the user to open jenkins in browser and open PR to the repo
 
+- [x] rename repositories: jenkinsfiles-test -> jenkins-setup, jenkinsfiles-test-app -> mobile-app, jenkinsfiles-test-app-ci -> mobile-app-ci, jenkins (root folder) -> jenkins-for-mobile-app
 - [ ] rename pipeline to Mobile App
-- [ ] rename repositories: jenkinsfiles-test -> jenkins-setup, jenkinsfiles-test-app -> mobile-app, jenkinsfiles-test-app-ci -> mobile-app-ci, jenkins (root folder) -> jenkins-for-mobile-app
 
 - [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
 that we can test changes to the CI repository before merging to main)

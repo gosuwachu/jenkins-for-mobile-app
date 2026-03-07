@@ -10,9 +10,9 @@ cd "$SCRIPT_DIR"
 
 # Clone repositories (skip if already present)
 REPOS=(
-    "git@github.com:gosuwachu/jenkinsfiles-test.git"
-    "git@github.com:gosuwachu/jenkinsfiles-test-app.git"
-    "git@github.com:gosuwachu/jenkinsfiles-test-app-ci.git"
+    "git@github.com:gosuwachu/jenkins-setup.git"
+    "git@github.com:gosuwachu/mobile-app.git"
+    "git@github.com:gosuwachu/mobile-app-ci.git"
 )
 
 echo ""
@@ -30,7 +30,7 @@ done
 # Start Jenkins
 echo ""
 echo "Starting Jenkins..."
-./jenkinsfiles-test/scripts/start.sh
+./jenkins-setup/scripts/start.sh
 
 echo ""
 echo "==================================="
@@ -41,5 +41,5 @@ echo "1. Open Jenkins in your browser:"
 echo "   http://localhost:8080  (admin / admin)"
 echo ""
 echo "2. Open a PR against the app repo to trigger the pipeline:"
-echo "   https://github.com/gosuwachu/jenkinsfiles-test-app/compare"
+echo "   https://github.com/gosuwachu/mobile-app/compare"
 echo ""
