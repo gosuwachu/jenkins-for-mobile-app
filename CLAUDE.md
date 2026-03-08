@@ -33,7 +33,7 @@ PR/branch push
          Build & Quality: build, unit-tests, linter (per platform)
          Deploy: deploy (per platform)
   → Each child Jenkinsfile (in CI repo) calls ./ci-cli <platform> <step>
-  → CLI checks out app at pinned COMMIT_SHA, publishes its own commit status
+  → CLI checks out app at pinned COMMIT_SHA, runs build script, publishes commit status
 ```
 
 **Key design decisions:**
@@ -97,6 +97,7 @@ GH_TOKEN=<token> ./ci-cli ios build --commit-sha <sha> --build-url <url>  # Run 
 
 ## Adding a New CI Step
 
-1. Add entry to `STEPS` dict in `mobile-app-ci/src/company/ci/steps.py`
-2. Create Jenkinsfile in `mobile-app-ci/ci/<platform>/<platform>-<step>.Jenkinsfile`
-3. Add context to `IOS_CONTEXTS`/`ANDROID_CONTEXTS` in `mobile-app-ci/vars/triggerPipeline.groovy`
+1. Add entry to `STEPS` and `STEP_SCRIPTS` dicts in `mobile-app-ci/src/company/ci/steps.py`
+2. Create build script in `mobile-app/{platform}/{platform}_build/{script}.sh`
+3. Create Jenkinsfile in `mobile-app-ci/ci/<platform>/<platform>-<step>.Jenkinsfile`
+4. Add context to `IOS_CONTEXTS`/`ANDROID_CONTEXTS` in `mobile-app-ci/vars/triggerPipeline.groovy`
