@@ -33,4 +33,4 @@ that we can test changes to the CI repository before merging to main)
 - [ ] what to do with submodules that have the build scripts?
 
 - [ ] it should be possible to specify as a parameter branch or PR number in the trigger job
-- [ ] can anka plugin be configured on multiple jenkinses to share the same controller?
+- [ ] can macos cloud plugin be configured on multiple jenkinses to share the same controller?
