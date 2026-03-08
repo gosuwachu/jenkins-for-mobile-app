@@ -70,6 +70,10 @@ CI Dashboard — PR detail with commit checks and review status:
 
 ![CI Dashboard PR details](.github/ci-dashboard-pr-details.png)
 
+CI Dashboard — Commit status details:
+
+![CI Dashboard commit status details](.github/ci-dashboard-commit-status.png)
+
 Jenkins dashboard with Mobile App and Mobile App Support folders:
 
 ![Jenkins dashboard](.github/jenkins-main.png)
