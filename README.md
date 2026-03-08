@@ -58,6 +58,18 @@ PR/branch push
 
 ## Screenshots
 
+CI Dashboard — main branch with commit status grid:
+
+![CI Dashboard main branch](.github/ci-dashboard-main.png)
+
+CI Dashboard — open pull requests:
+
+![CI Dashboard pull requests](.github/ci-dashboard-prs.png)
+
+CI Dashboard — PR detail with commit checks and review status:
+
+![CI Dashboard PR details](.github/ci-dashboard-pr-details.png)
+
 Jenkins dashboard with Mobile App and Mobile App Support folders:
 
 ![Jenkins dashboard](.github/jenkins-main.png)

@@ -13,6 +13,7 @@ REPOS=(
     "git@github.com:gosuwachu/jenkins-setup.git"
     "git@github.com:gosuwachu/mobile-app.git"
     "git@github.com:gosuwachu/mobile-app-ci.git"
+    "git@github.com:gosuwachu/ci-dashboard.git"
 )
 
 echo ""
