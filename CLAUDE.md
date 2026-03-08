@@ -8,13 +8,14 @@ This is a multi-repo Jenkins CI/CD test environment demonstrating a **multibranc
 
 ## Repository Layout
 
-This directory contains three interconnected repositories:
+This directory contains four interconnected repositories:
 
 | Repo | Purpose | GitHub |
 |------|---------|--------|
 | `jenkins-setup/` | Jenkins infrastructure (Docker, CASC, Job DSL) | [gosuwachu/jenkins-setup](https://github.com/gosuwachu/jenkins-setup) |
 | `mobile-app/` | App repo with thin trigger stub Jenkinsfile + platform dirs | [gosuwachu/mobile-app](https://github.com/gosuwachu/mobile-app) |
 | `mobile-app-ci/` | CI step definitions: child Jenkinsfiles, Python CLI, shared library | [gosuwachu/mobile-app-ci](https://github.com/gosuwachu/mobile-app-ci) |
+| `ci-dashboard/` | Next.js CI monitoring dashboard | [gosuwachu/ci-dashboard](https://github.com/gosuwachu/ci-dashboard) |
 
 Each repo has its own `CLAUDE.md` with repo-specific details. Read those before making changes.
 
@@ -51,6 +52,12 @@ docker-compose down -v                # Full reset (clear all data)
 ./scripts/jenkins-api.sh build <path> # Trigger a build
 ./scripts/jenkins-api.sh log <path>   # View console log
 ./scripts/jenkins-api.sh status <path> # Get job status
+```
+
+### CI Dashboard (ci-dashboard/)
+```bash
+npm run dev                           # Start dev server (localhost:3000)
+npm run build                         # Production build (use this to verify, no need to rm .next first)
 ```
 
 ### CI Repo (mobile-app-ci/)

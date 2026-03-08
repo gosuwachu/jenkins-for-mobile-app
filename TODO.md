@@ -21,16 +21,15 @@
 - [x] rename pipeline to Mobile App
 - [x] define a test alpha pipeline
 - [x] define a test production pipeline
-
-- [ ] next js app for displaying the status of commits on main and all of the PRs
-- [ ] next js app for displaying the alpha and production pipeline
-
-- [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
-that we can test changes to the CI repository before merging to main)
+- [x] next js app for displaying the status of commits on main and all of the PRs
+- [x] next js app for displaying the alpha and production pipeline
 
 - [ ] what would be the integration with automation repo?
 - [ ] what would be the integration with local dev commands?
 - [ ] what to do with submodules that have the build scripts?
+
+- [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
+that we can test changes to the CI repository before merging to main)
 
 - [ ] it should be possible to specify as a parameter branch or PR number in the trigger job
 - [ ] can macos cloud plugin be configured on multiple jenkinses to share the same controller?
