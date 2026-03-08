@@ -56,6 +56,30 @@ PR/branch push
 - Uses commit statuses API (not Checks API) -- simpler but no GitHub "Re-run" button
 - Omnibus job pattern: single parameterized job runs any Jenkinsfile via `JENKINSFILE` parameter
 
+## Screenshots
+
+Jenkins dashboard with Mobile App and Mobile App Support folders:
+
+![Jenkins dashboard](.github/jenkins-main.png)
+
+Mobile App folder — CI/PR Pipeline, Alpha and Production pipelines:
+
+![Mobile App folder](.github/jenkins-mobile-app.png)
+
+CI / PR Pipeline — multibranch, discovers branches and PRs:
+
+![CI / PR Pipeline branches](.github/jenkins-mobile-app-ci.png)
+
+![CI / PR Pipeline pull requests](.github/jenkins-mobile-app-prs.png)
+
+CI pipeline stage view — parallel checks per platform:
+
+![CI pipeline stage view](.github/jenkins-mobile-app-ci-checks.png)
+
+Omnibus job — all child jobs (CI checks, alpha/production deploys):
+
+![Omnibus build history](.github/jenkins-mobile-app-omnibus.png)
+
 ## Common Commands
 
 ```bash
