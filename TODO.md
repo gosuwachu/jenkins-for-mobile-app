@@ -19,9 +19,8 @@
 - [x] create scripts in the root repo to clone the repositories and start jenkins and tell the user to open jenkins in browser and open PR to the repo
 - [x] rename repositories: jenkinsfiles-test -> jenkins-setup, jenkinsfiles-test-app -> mobile-app, jenkinsfiles-test-app-ci -> mobile-app-ci, jenkins (root folder) -> jenkins-for-mobile-app
 - [x] rename pipeline to Mobile App
-
-- [ ] define a test alpha pipeline
-- [ ] define a test production pipeline
+- [x] define a test alpha pipeline
+- [x] define a test production pipeline
 
 - [ ] next js app for displaying the status of commits on main and all of the PRs
 - [ ] next js app for displaying the alpha and production pipeline
@@ -29,8 +28,8 @@
 - [ ] run the app trigger job automatically with the branch from the PR to the CI repository as a parameter as part of the CI repo Jenkinsfile (this is so 
 that we can test changes to the CI repository before merging to main)
 
-- [ ] what would be the integration with release-automation repo?
-- [ ] what would be the integration with quick?
+- [ ] what would be the integration with automation repo?
+- [ ] what would be the integration with local dev commands?
 - [ ] what to do with submodules that have the build scripts?
 
 - [ ] it should be possible to specify as a parameter branch or PR number in the trigger job
