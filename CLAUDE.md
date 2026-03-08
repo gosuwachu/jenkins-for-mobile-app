@@ -97,7 +97,8 @@ GH_TOKEN=<token> ./ci-cli ios build --commit-sha <sha> --build-url <url>  # Run 
 
 ## Adding a New CI Step
 
-1. Add entry to `STEPS` and `STEP_SCRIPTS` dicts in `mobile-app-ci/src/company/ci/steps.py`
-2. Create build script in `mobile-app/{platform}/{platform}_build/{script}.sh`
-3. Create Jenkinsfile in `mobile-app-ci/ci/<platform>/<platform>-<step>.Jenkinsfile`
-4. Add context to `IOS_CONTEXTS`/`ANDROID_CONTEXTS` in `mobile-app-ci/vars/triggerPipeline.groovy`
+1. Add `StepConfig` entry to `STEPS` and a `run_<step>` function in `mobile-app-ci/src/company/ci/steps.py`
+2. Add the function to `STEP_FUNCTIONS` in `cli.py` and update the dispatch logic
+3. Create build script in `mobile-app/{platform}/{platform}_build/{script}.sh`
+4. Create Jenkinsfile in `mobile-app-ci/ci/<platform>/<platform>-<step>.Jenkinsfile`
+5. Add context to `IOS_CONTEXTS`/`ANDROID_CONTEXTS` in `mobile-app-ci/vars/triggerPipeline.groovy`

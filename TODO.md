@@ -24,8 +24,8 @@
 - [x] next js app for displaying the status of commits on main and all of the PRs
 - [x] next js app for displaying the alpha and production pipeline
 
-- [ ] add dummy build scripts to the mobile-app repo for ios/android build, lint, unit tests, ui tests, these scripts should be used by ./ci-cli to run the corresponding steps
-- [ ] add a new cli script called ./fast, that can be used by developers to run CI checks locally, e.g. ./fast ready, ./fast ios build, ./fast ios alpha-build, etc.
+- [x] add dummy build scripts to the mobile-app repo for ios/android build, lint, unit tests, ui tests, these scripts should be used by ./ci-cli to run the corresponding steps
+- [ ] add a new cli script called ./fast, that can be used by developers to run CI checks locally, e.g. ./fast ready (run all the checks in series - except alpha and production builds), ./fast ios build, ./fast ios alpha-build, etc. - print with nice colours
 
 - [ ] what would be the integration with automation repo?
 - [ ] what would be the integration with local dev commands?
